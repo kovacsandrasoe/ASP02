@@ -10,14 +10,26 @@
 <body>
     <a href="/Home/Add" >Új dolgozó felvétele</a>
 
-    <ul>
-        @{
-            foreach (var item in @Model)
-            {
-                <li>@item.Name</li>
-            }
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+            <th>Név</th>
+            <th>Beosztás</th>
+            <th>Fizetés</th>
+            <th>Lehetőségek</th>
+        </tr>
+        
+        <tr>
+            @{
+                foreach (var item in @Model)
+                {
+                    <td>@item.Name</td>
+                    <td>@item.Job</td>
+                    <td>@item.Salary</td>
+                    <td></td>
+                }
+            </tr>
         }
-    </ul>
+    </table>
 
 </body>
 </html>
