@@ -10,9 +10,9 @@ namespace ASP02.Controllers
 {
     public class HomeController : Controller
     {
-        WorkerXMLRepository repo;
+        IWorkerRepository repo;
 
-        public HomeController(WorkerXMLRepository repo)
+        public HomeController(IWorkerRepository repo)
         {
             this.repo = repo;
         }

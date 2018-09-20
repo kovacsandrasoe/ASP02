@@ -37,9 +37,9 @@ namespace ASP02.Data
             foreach (var item in allWorker)
             {
                 XElement newelement = new XElement("worker");
-                newelement.Add(new XElement("Name"), item.Name);
-                newelement.Add(new XElement("Job"), item.Job);
-                newelement.Add(new XElement("Salary"), item.Salary);
+                newelement.Add(new XElement("Name", item.Name));
+                newelement.Add(new XElement("Job", item.Job));
+                newelement.Add(new XElement("Salary", item.Salary));
                 xdoc.Element("workers").Add(newelement);
             }
             xdoc.Save(Directory.GetCurrentDirectory() + 
@@ -50,6 +50,7 @@ namespace ASP02.Data
         public void Add(WorkerModel model)
         {
             allWorker.Add(model);
+            this.SaveRepository();
         }
 
         public IEnumerable<WorkerModel> GetAll()
