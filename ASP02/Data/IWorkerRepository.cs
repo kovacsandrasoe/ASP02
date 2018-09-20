@@ -10,5 +10,6 @@ namespace ASP02.Data
     {
         void Add(WorkerModel model);
         IEnumerable<WorkerModel> GetAll();
+        void Delete(int hashcode);
     }
 }

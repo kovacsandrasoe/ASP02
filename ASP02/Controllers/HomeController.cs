@@ -23,6 +23,14 @@ namespace ASP02.Controllers
         }
 
         [HttpGet]
+        public IActionResult Delete(int hashcode)
+        {
+            //megkapjuk a törlendő dolgozó hashcode-ját
+            repo.Delete(hashcode);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
         public IActionResult Add()
         {
             return View();

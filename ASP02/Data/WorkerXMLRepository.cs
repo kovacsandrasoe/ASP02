@@ -57,5 +57,16 @@ namespace ASP02.Data
         {
             return allWorker;
         }
+
+        public void Delete(int hashcode)
+        {
+            var q = from x in allWorker
+                    where x.GetHashCode() == hashcode
+                    select x;
+            WorkerModel modelToDelete = q.FirstOrDefault();
+
+            allWorker.Remove(modelToDelete);
+            this.SaveRepository();
+        }
     }
 }

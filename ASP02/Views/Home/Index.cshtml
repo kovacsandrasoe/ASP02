@@ -17,19 +17,26 @@
             <th>Fizetés</th>
             <th>Lehetőségek</th>
         </tr>
+
+
+        @{
+
+            foreach (var item in @Model)
+            {
+                <tr>
+                 <td>@item.Name</td>
+                 <td>@item.Job</td>
+                 <td>@item.Salary</td>
+                 <td>
+                        <a href="/Home/Delete?hashcode=
+                         @item.GetHashCode()">Törlés</a>
+                    </td>
+                 </tr>
+            }
         
-        <tr>
-            @{
-                foreach (var item in @Model)
-                {
-                    <td>@item.Name</td>
-                    <td>@item.Job</td>
-                    <td>@item.Salary</td>
-                    <td></td>
-                }
-            </tr>
         }
-    </table>
+                
+            </table>
 
 </body>
 </html>
