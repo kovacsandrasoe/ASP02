@@ -7,13 +7,32 @@
     <title>Add</title>
 </head>
 <body>
-    <form method="post" action="/Home/Modify">
-        Név: <input type="text" name="name" value="@Model.Name" /> <br />
-        Beosztás: <input type="text" name="job" value="@Model.Job" /> <br />
-        Fizetés: <input type="text" name="salary" value="@Model.Salary" /> <br />
+    @*<form method="post" action="/Home/Modify">
+            Név: <input type="text" name="name" value="@Model.Name" /> <br />
+            Beosztás: <input type="text" name="job" value="@Model.Job" /> <br />
+            Fizetés: <input type="text" name="salary" value="@Model.Salary" /> <br />
+            <input type="hidden" name="hash" value="@Model.GetHashCode()" />
+            <input type="submit" value="Mentés" />
+        </form>*@
+
+    @using (Html.BeginForm("Modify", "Home", FormMethod.Post))
+    {
+        <p>
+            @Html.LabelFor(x => x.Name)
+            @Html.EditorFor(x => x.Name)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Job)
+            @Html.EditorFor(x => x.Job)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Salary)
+            @Html.EditorFor(x => x.Salary)
+        </p>
+        
         <input type="hidden" name="hash" value="@Model.GetHashCode()" />
         <input type="submit" value="Mentés" />
-    </form>
+    }
 </body>
 </html>
 

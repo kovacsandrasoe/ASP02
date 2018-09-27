@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <workers>
   <worker>
-    <Name>Tóth Aranka</Name>
-    <Job>CFO</Job>
-    <Salary>400000</Salary>
-  </worker>
-  <worker>
     <Name>Kovács András</Name>
     <Job>CEO</Job>
     <Salary>800000</Salary>
+  </worker>
+  <worker>
+    <Name>Tóth Aranka</Name>
+    <Job>CFO</Job>
+    <Salary>600000</Salary>
   </worker>
 </workers>
