@@ -23,21 +23,40 @@
 
             foreach (var item in @Model)
             {
-                <tr>
-                 <td>@item.Name</td>
-                 <td>@item.Job</td>
-                 <td>@item.Salary</td>
-                 <td>
-                        <a href="/Home/Delete?hashcode=
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Job</td>
+
+            @{
+                switch (item.SalaryCategory)
+                {
+                    case ASP02.Models.SalaryCategories.Low:
+                        <td><font color="blue">@item.Salary</font></td>
+                        break;
+                    case ASP02.Models.SalaryCategories.Middle:
+                        <td><font color="green">@item.Salary</font></td>
+                        break;
+                    case ASP02.Models.SalaryCategories.High:
+                        <td><font color="red">@item.Salary</font></td>
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+
+
+            <td>
+                <a href="/Home/Delete?hashcode=
                          @item.GetHashCode()">Törlés</a>
 
-                     &nbsp;|&nbsp;
+                &nbsp;|&nbsp;
 
-                        <a href="/Home/Modify?hashcode=
+                <a href="/Home/Modify?hashcode=
                          @item.GetHashCode()">Módosítás</a>
 
-                    </td>
-                 </tr>
+            </td>
+        </tr>
             }
         
         }
