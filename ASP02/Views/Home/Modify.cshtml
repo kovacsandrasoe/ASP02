@@ -15,19 +15,26 @@
             <input type="submit" value="Mentés" />
         </form>*@
 
+    @*<font color="red">
+        @Html.ValidationSummary()
+    </font>*@
+
     @using (Html.BeginForm("Modify", "Home", FormMethod.Post))
     {
         <p>
             @Html.LabelFor(x => x.Name)
             @Html.EditorFor(x => x.Name)
+            @Html.ValidationMessageFor(x => x.Name)
         </p>
         <p>
             @Html.LabelFor(x => x.Job)
             @Html.EditorFor(x => x.Job)
+            @Html.ValidationMessageFor(x => x.Job)
         </p>
         <p>
             @Html.LabelFor(x => x.Salary)
             @Html.EditorFor(x => x.Salary)
+            @Html.ValidationMessageFor(x => x.Salary)
         </p>
         
         <input type="hidden" name="hash" value="@Model.GetHashCode()" />

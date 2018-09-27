@@ -40,6 +40,11 @@ namespace ASP02.Controllers
         [HttpPost]
         public IActionResult Modify(WorkerModel model, int hash)
         {
+            if (!ModelState.IsValid)
+            {
+                //visszadobjuk a modellt!
+                return View(model);
+            }
             repo.ModifyWorker(model, hash);
             return RedirectToAction("Index");
         }
