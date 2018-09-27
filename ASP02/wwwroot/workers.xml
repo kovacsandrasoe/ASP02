@@ -1,2 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<workers />
+<workers>
+  <worker>
+    <Name>Kovács András</Name>
+    <Job>CEO</Job>
+    <Salary>800000</Salary>
+  </worker>
+</workers>

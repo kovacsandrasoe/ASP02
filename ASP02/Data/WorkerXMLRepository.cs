@@ -68,5 +68,23 @@ namespace ASP02.Data
             allWorker.Remove(modelToDelete);
             this.SaveRepository();
         }
+
+        public WorkerModel GetWorkerByHash(int hashcode)
+        {
+            var q = from x in allWorker
+                    where x.GetHashCode() == hashcode
+                    select x;
+            return q.FirstOrDefault();
+        }
+
+        public void ModifyWorker(WorkerModel model, int oldhash)
+        {
+            var q = from x in allWorker
+                    where x.GetHashCode() == oldhash
+                    select x;
+            allWorker.Remove(q.FirstOrDefault());
+            allWorker.Add(model);
+            this.SaveRepository();
+        }
     }
 }

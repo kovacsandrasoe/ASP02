@@ -31,6 +31,22 @@ namespace ASP02.Controllers
         }
 
         [HttpGet]
+        public IActionResult Modify(int hashcode)
+        {
+            var model = repo.GetWorkerByHash(hashcode);
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Modify(WorkerModel model, int hash)
+        {
+            repo.ModifyWorker(model, hash);
+            return RedirectToAction("Index");
+        }
+
+
+
+        [HttpGet]
         public IActionResult Add()
         {
             return View();
