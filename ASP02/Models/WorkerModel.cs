@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ASP02.Models
@@ -34,5 +36,21 @@ namespace ASP02.Models
         [DisplayName("Fizetés")]
         public int Salary { get; set; }
         public SalaryCategories SalaryCategory { get; set; }
+
+        public string Alias
+        {
+            get
+            {
+                MD5 hashcreator = MD5.Create();
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(this.Name);
+                byte[] hash = hashcreator.ComputeHash(inputBytes);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    sb.Append(hash[i].ToString("X2"));
+                }
+                return sb.ToString();
+            }
+        }
     }
 }
