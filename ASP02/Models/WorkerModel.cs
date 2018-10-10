@@ -32,7 +32,6 @@ namespace ASP02.Models
         [Required(ErrorMessage = "Ez a mező kötelező")]
         [Range(100000, 900000, ErrorMessage = "100e és 900e közötti érték lehet")]
         [DisplayName("Fizetés")]
-        [MaxLength(50)]
         public int Salary { get; set; }
         public SalaryCategories SalaryCategory { get; set; }
     }
