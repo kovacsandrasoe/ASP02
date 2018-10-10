@@ -23,7 +23,8 @@
     {
         <p>
             @Html.LabelFor(x => x.Name)
-            @Html.EditorFor(x => x.Name)
+            @Model.Name
+            @Html.HiddenFor(x => x.Name)
             @Html.ValidationMessageFor(x => x.Name)
         </p>
         <p>
@@ -37,7 +38,7 @@
             @Html.ValidationMessageFor(x => x.Salary)
         </p>
         
-        <input type="hidden" name="hash" value="@Model.GetHashCode()" />
+        <input type="hidden" name="alias" value="@Model.Alias" />
         <input type="submit" value="Mentés" />
     }
 </body>

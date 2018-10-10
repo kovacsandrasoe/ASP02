@@ -10,8 +10,8 @@ namespace ASP02.Data
     {
         void Add(WorkerModel model);
         IEnumerable<WorkerModel> GetAll();
-        void Delete(int hashcode);
-        WorkerModel GetWorkerByHash(int hashcode);
-        void ModifyWorker(WorkerModel model, int oldhash);
+        void Delete(string alias);
+        WorkerModel GetWorkerByHash(string alias);
+        void ModifyWorker(WorkerModel model, string oldalias);
     }
 }

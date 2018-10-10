@@ -58,10 +58,10 @@ namespace ASP02.Data
             return allWorker;
         }
 
-        public void Delete(int hashcode)
+        public void Delete(string alias)
         {
             var q = from x in allWorker
-                    where x.GetHashCode() == hashcode
+                    where x.Alias == alias
                     select x;
             WorkerModel modelToDelete = q.FirstOrDefault();
 
@@ -69,18 +69,18 @@ namespace ASP02.Data
             this.SaveRepository();
         }
 
-        public WorkerModel GetWorkerByHash(int hashcode)
+        public WorkerModel GetWorkerByHash(string alias)
         {
             var q = from x in allWorker
-                    where x.GetHashCode() == hashcode
+                    where x.Alias == alias
                     select x;
             return q.FirstOrDefault();
         }
 
-        public void ModifyWorker(WorkerModel model, int oldhash)
+        public void ModifyWorker(WorkerModel model, string oldalias)
         {
             var q = from x in allWorker
-                    where x.GetHashCode() == oldhash
+                    where x.Alias == oldalias
                     select x;
             allWorker.Remove(q.FirstOrDefault());
             allWorker.Add(model);

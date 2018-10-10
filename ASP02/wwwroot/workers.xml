@@ -6,8 +6,13 @@
     <Salary>800000</Salary>
   </worker>
   <worker>
-    <Name>Tóth Aranka</Name>
+    <Name>Kiss Erika</Name>
     <Job>CFO</Job>
     <Salary>600000</Salary>
+  </worker>
+  <worker>
+    <Name>Tóth Enikő</Name>
+    <Job>titkárnő</Job>
+    <Salary>220000</Salary>
   </worker>
 </workers>

@@ -23,29 +23,29 @@ namespace ASP02.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int hashcode)
+        public IActionResult Delete(string alias)
         {
-            //megkapjuk a törlendő dolgozó hashcode-ját
-            repo.Delete(hashcode);
+            //megkapjuk a törlendő dolgozó aliasát
+            repo.Delete(alias);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Modify(int hashcode)
+        public IActionResult Modify(string alias)
         {
-            var model = repo.GetWorkerByHash(hashcode);
+            var model = repo.GetWorkerByHash(alias);
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Modify(WorkerModel model, int hash)
+        public IActionResult Modify(WorkerModel model, string alias)
         {
             if (!ModelState.IsValid)
             {
                 //visszadobjuk a modellt!
                 return View(model);
             }
-            repo.ModifyWorker(model, hash);
+            repo.ModifyWorker(model, alias);
             return RedirectToAction("Index");
         }
 
